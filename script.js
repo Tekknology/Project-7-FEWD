@@ -25,8 +25,8 @@ window.onload = function() {
 	// Array of object for transcript text with start and finish
 	var transcript_array = [
 		{"start": "0.00",
-			"fin": "7.535",
-			"text": "Now that we've looked at the architecture of the internet, let's see how you might connect your personal devices to the internet inside your house."},
+		"fin": "7.535",
+"text": "Now that we've looked at the architecture of the internet, let's see how you might connect your personal devices to the internet inside your house."},
 		{"start": "7.536",
 			"fin": "13.960",
 			"text": "Well there are many ways to connect to the internet, and most often people connect wirelessly."},
@@ -50,6 +50,7 @@ window.onload = function() {
 			"text": "A few common residential modems are DSL or--"}   
 	];
 	// Event listener for the play/pause button
+  
 	playButton.addEventListener("click", function() {
 		if (video.paused == true) {
 			// Play the video
@@ -202,14 +203,14 @@ window.onload = function() {
 		video.play();
 	}
 
-	// Place text inside the #transcript with appropriate span and id
+	// Place text inside the #transcript with appropriate p and id
 	function prep_transcript() {
 		var temp;
 		for (var i = 0; i < transcript_array.length; i++) {
-			// create a span element
-			temp = document.createElement('span');
+			// create a p element
+			temp = document.createElement('p');
 
-			// put the text to the span element
+			// put the text to the p element
 			temp.innerHTML = transcript_array[i].text + ' ';
 
 			// set the id to the time of start of the cue
@@ -218,7 +219,7 @@ window.onload = function() {
 			// append the element to transcript area
 			transcript_area.appendChild(temp);
 
-			// attach event listener that will fire skip_to_text when span is clicked
+			// attach event listener that will fire skip_to_text when p is clicked
 			temp.addEventListener('click', skip_to_text);
 		}
 	}
